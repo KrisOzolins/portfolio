@@ -1,0 +1,12 @@
+.typewriter {
+  .cursor {
+    border-right: 5px solid;
+    animation: blink 0.75s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+}

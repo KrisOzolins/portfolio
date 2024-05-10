@@ -1,40 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- Project shields -->
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Getting Started
+# KrisOzolins Portfolio
 
-First, run the development server:
+> Next.js + standalone Node.js/Express monorepo for my portfolio website.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+My personal portfolio project used to showcase some of my skills, as reference for other projects and last but not least as my personal public portfolio website for potential employers, clients, etc. Feel free to explore, use as reference or inspiration, make suggestions, etc.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Info
+* Tech used: Next.js, Node.js/Express, Redux, TypeScript, PostgreSQL.
+* Dev: clone, run `npm i && cd server && npm i`, then edit both ./.env and ./server/.env files, create db and `npm run dev`.
+* ...
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## To Do
+* [ ] ...
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The MIT License (MIT)
+Copyright (c) 2024 KrisOzolins https://krisozolins.com
 
-## Learn More
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-To learn more about Next.js, take a look at the following resources:
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- MARKDOWN LINKS & IMAGES -->
+[forks-shield]: https://img.shields.io/github/forks/krisozolins/portfolio.svg?style=for-the-badge
+[forks-url]: https://github.com/krisozolins/portfolio/network/members
+[stars-shield]: https://img.shields.io/github/stars/krisozolins/portfolio.svg?style=for-the-badge
+[stars-url]: https://github.com/krisozolins/portfolio/stargazers
+[issues-shield]: https://img.shields.io/github/issues/krisozolins/portfolio.svg?style=for-the-badge
+[issues-url]: https://github.com/krisozolins/portfolio/issues
+[license-shield]: https://img.shields.io/github/license/krisozolins/portfolio.svg?style=for-the-badge
+[license-url]: https://github.com/krisozolins/portfolio/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/krisozolins
+[product-screenshot]: images/screenshot.png

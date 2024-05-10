@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+
+# Allow crawling of all content except for /admin.
+User-agent: *
+Disallow:
+Disallow: /admin

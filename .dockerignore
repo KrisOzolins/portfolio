@@ -1,0 +1,11 @@
+**/node_modules
+**/.gitignore
+**/Dockerfile*
+*/.env*
+.github
+.vscode
+.idea
+.next
+node_modules
+electron
+rn
