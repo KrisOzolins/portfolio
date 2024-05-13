@@ -55,8 +55,9 @@ function Hero({
         toggleHeaderVisibility={toggleHeaderVisibility}
         headerVisible={headerVisible}
       />
+      <div className={`${styles['hero-bg']} grayscale rounded-bl-xl`} style={bgStyle}></div>
       <section className={`${styles.hero} hero h-screen`} id="home">
-        <div className="bg-gray-dark h-full flex flex-col justify-center items-center rounded-bl-xl grayscale relative" style={bgStyle}>
+        <div className="h-full flex flex-col justify-center items-center relative">
           {/* <Particles /> */}
           <h1 className="text-7xl mb-3 font-bold">
             Kris<span className="font-outlined">Ozolins</span>
