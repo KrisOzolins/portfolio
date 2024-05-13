@@ -7,6 +7,7 @@ const host = dev ? 'localhost' : 'krisozolins.com';
 const port = dev ? 3001 : 80;
 
 const config = {
+  dev,
   protocol: process.env.NEXT_PUBLIC_NODE_PROTOCOL || protocol,
   host: process.env.NEXT_PUBLIC_NODE_HOST || host,
   port: process.env.NEXT_PUBLIC_NODE_PORT || port,
