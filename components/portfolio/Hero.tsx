@@ -29,11 +29,15 @@ function Hero({
       if (navSecondaryRef.current) {
         const el = navSecondaryRef.current;
         if (window.scrollY > 0) {
-          el.classList.add('bg-background', 'shadow-lg', 'fixed');
-          el.classList.remove('absolute');
+          if (el.classList.contains('absolute')) {
+            el.classList.add('bg-background', 'shadow-lg', 'fixed');
+            el.classList.remove('absolute');
+          }
         } else {
-          el.classList.remove('bg-background', 'shadow-lg', 'fixed');
-          el.classList.add('absolute');
+          if (el.classList.contains('fixed')) {
+            el.classList.remove('bg-background', 'shadow-lg', 'fixed');
+            el.classList.add('absolute');
+          }
         }
       }
     };
@@ -43,7 +47,8 @@ function Hero({
   }, []);
 
   const bgStyle = {
-    backgroundPosition: `center -${Math.max(0, scrollY / 3)}px`,
+    // backgroundPosition: `center -${Math.max(0, scrollY / 3)}px`,
+    transform: `translateY(-${Math.max(0, scrollY / 3)}px)`,
   };
 
   return (
