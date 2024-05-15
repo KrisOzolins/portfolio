@@ -41,8 +41,9 @@ router.post('/contact', async (req, res) => {
   const html = await ejs.renderFile(__dirname + '/views/mails/contact.ejs', { name, message });
 
   const mailOptions = {
-    from: email,
-    to: 'kris.ozolins@gmail.com',
+    from: 'kris@krisozolins.com',
+    to: 'kris@krisozolins.com',
+    replyTo: email,
     subject: `New message from krisozolins.com contact form.${subject ? ` [subject: ${subject}]` : ''}`,
     html,
   };
