@@ -499,7 +499,7 @@ function Portfolio({ isBlog = false, isWiki = false, width = 0, ssrProp }: { isB
         <div className="container mx-auto lg:mx-0 mb-10 flex flex-col lg:flex-row items-center relative">
           <div
             className={`bg-center bg-cover h-[350px] w-full max-w-xl lg:w-1/2 grayscale hover:grayscale-0 transition ease-linear duration-500${width >= 1024 ? ' fade-out-right' : ''}`}
-            style={{ backgroundImage: 'url("/resources/images/services-bg.jpg")' }}
+            style={{ backgroundImage: 'url("/resources/images/services-bg.webp")' }}
           ></div>
           <div className="bg-background bg-opacity-90 p-10 border-b-2 border-primary-accent h-fit z-10 min-w-[340px] max-w-[450px] w-10/12 lg:w-1/3 -mt-40 lg:mt-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
             <h3 className="text-2xl font-header font-bold text-center md:text-left mb-3">About the services</h3>
