@@ -15,7 +15,7 @@ const config = {
   baseUrl: process.env.NEXT_PUBLIC_BASE_URL || 'https://krisozolins.com',
   mapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
   projectName: 'krisozolins.com', // siteName
-  email: 'kris.ozolins@gmail.com',
+  email: 'kris@krisozolins.com',
   phone: '+371 27046767',
   recaptchaSiteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
 };
