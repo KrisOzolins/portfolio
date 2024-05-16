@@ -56,8 +56,8 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta name="author" content="Krisjanis Ozolins" />
           <meta property="og:title" content="Krisjanis Ozolins Portfolio" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://www.krisozolins.com" />
-          <meta property="og:image" content="https://www.krisozolins.com/resources/images/profile.jpg" />
+          <meta property="og:url" content={config.baseUrl} />
+          <meta property="og:image" content={`${config.baseUrl}/resources/images/og-bg.png`} />
           <meta property="og:description" content="Krisjanis Ozolins' portfolio and blog." />
           <meta property="og:site_name" content="Krisjanis Ozolins Portfolio" />
           <meta property="og:locale" content="en_US" />

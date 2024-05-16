@@ -12,6 +12,7 @@ const config = {
   host: process.env.NEXT_PUBLIC_NODE_HOST || host,
   port: process.env.NEXT_PUBLIC_NODE_PORT || port,
   apiServerUrl: `${process.env.NEXT_PUBLIC_NODE_PROTOCOL || protocol}://${process.env.NEXT_PUBLIC_NODE_HOST || host}:${process.env.NEXT_PUBLIC_NODE_PORT || port}/api`,
+  baseUrl: process.env.NEXT_PUBLIC_BASE_URL || 'https://krisozolins.com',
   mapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
   projectName: 'krisozolins.com', // siteName
   email: 'kris.ozolins@gmail.com',
