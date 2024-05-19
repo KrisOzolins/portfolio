@@ -15,7 +15,7 @@ function Post({ post }: { post: any }) {
       <dl>
         <dt className="sr-only">Published on</dt>
         <dd className="text-base font-medium leading-6 text-gray-regular">
-          <time dateTime={post.created_at}>{dayjs(post.created_at).format('MMMM D, YYYY')}</time>
+          <time dateTime={post.createdAt}>{dayjs(post.createdAt).format('MMMM D, YYYY')}</time>
         </dd>
       </dl>
       <div className="space-y-5 xl:col-span-3">
