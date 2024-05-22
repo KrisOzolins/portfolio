@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
@@ -7,8 +7,8 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import store from '@/store';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+const { library } = require('@fortawesome/fontawesome-svg-core'); // Need to use CJS import here because of a bug - https://github.com/FortAwesome/Font-Awesome/issues/19348.
+import { faC, fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import config from '@/config';
@@ -42,33 +42,31 @@ export default function App({ Component, pageProps }: AppProps) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // todo: Migrate everything more towards SSR.
     setIsClient(true);
+    // console.log("process.browser: ", process.browser);
   }, []);
 
   return (
-    isClient && (
-      <>
-        <Head>
-          <title>{title} - KrisOzolins.com</title>
-          <meta name="description" content="Krisjanis Ozolins' portfolio and blog." />
-          <meta name="keywords" content="portfolio, web, development, javascript, react, nextjs, nodejs" />
-          <meta name="author" content="Krisjanis Ozolins" />
-          <meta property="og:title" content="Krisjanis Ozolins Portfolio" />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content={config.baseUrl} />
-          <meta property="og:image" content={`${config.baseUrl}/resources/images/og-bg.png`} />
-          <meta property="og:description" content="Krisjanis Ozolins' portfolio and blog." />
-          <meta property="og:site_name" content="Krisjanis Ozolins Portfolio" />
-          <meta property="og:locale" content="en_US" />
-        </Head>
-        <Provider store={store}>
-          <Layout showHeader={isRoot} showFooter={isRoot} showHero={isRoot} fonts={{ montserrat, roboto, firaCode }}>
-            <Component {...pageProps} />
-          </Layout>
-        </Provider>
-        {!config.dev && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_ANALYTICS_ID || ''} />}
-      </>
-    )
+    <>
+      <Head>
+        <title>{title} - KrisOzolins.com</title>
+        <meta name="description" content="Krisjanis Ozolins' portfolio and blog." />
+        <meta name="keywords" content="portfolio, web, development, javascript, react, nextjs, nodejs" />
+        <meta name="author" content="Krisjanis Ozolins" />
+        <meta property="og:title" content="Krisjanis Ozolins Portfolio" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={config.baseUrl} />
+        <meta property="og:image" content={`${config.baseUrl}/resources/images/og-bg.png`} />
+        <meta property="og:description" content="Krisjanis Ozolins' portfolio and blog." />
+        <meta property="og:site_name" content="Krisjanis Ozolins Portfolio" />
+        <meta property="og:locale" content="en_US" />
+      </Head>
+      <Provider store={store}>
+        <Layout showHeader={isRoot} showFooter={isRoot} showHero={isRoot} fonts={{ montserrat, roboto, firaCode }}>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
+      {!config.dev && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_ANALYTICS_ID || ''} />}
+    </>
   );
 }

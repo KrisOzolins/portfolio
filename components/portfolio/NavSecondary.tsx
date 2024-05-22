@@ -1,8 +1,10 @@
 import { forwardRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Icon from '@/components/common/Icon';
 import { SunIcon, MoonIcon } from '@/components/common/Icons';
 import Tooltip from '@/components/common/Tooltip';
+import useClient from '@/lib/hooks/useClient';
 
 const NavSecondary = forwardRef(
   (
@@ -14,8 +16,12 @@ const NavSecondary = forwardRef(
     }: { leftSpacing?: number; scrollY?: number; headerVisible?: boolean; toggleHeaderVisibility: () => void },
     ref,
   ) => {
+    const win = typeof window !== 'undefined' ? window : null;
+    const isClient = useClient();
+
     const activeClass = (path: string) => {
-      return (path !== '/' && window.location.pathname.includes(path)) || (path === '/' && window.location.pathname.length === 1) ? 'active' : '';
+      // return (path !== '/' && win?.location.pathname.includes(path)) || (path === '/' && win?.location.pathname.length === 1) ? 'active' : '';
+      return usePathname() === path ? 'active' : '';
     };
 
     return (

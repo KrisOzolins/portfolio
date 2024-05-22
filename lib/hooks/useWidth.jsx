@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
 
 // Hook implementation.
-const useWidth = (query) => {
-  const [width, setWidth] = useState(window.innerWidth);
+const useWidth = () => {
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    setWidth(window.innerWidth);
+
     const handleResize = () => setWidth(window.innerWidth);
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

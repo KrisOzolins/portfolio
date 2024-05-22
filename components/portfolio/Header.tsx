@@ -48,7 +48,7 @@ function Header({
         className={`header bg-background ${isMdOrBelow ? 'w-48' : 'w-32'} xl:w-48 h-full transition-transform duration-300 ${isMdOrBelow ? (headerVisible ? 'ease-out translate-x-0' : 'ease-in -translate-x-48') : ''} flex flex-col justify-start items-center fixed z-50`}
       >
         <h1 className="p-2 flex justify-center items-center font-bold text-sm xl:text-base min-h-10">
-          <Image src={logo} alt={`${config.projectName} logo`} width={16} height={16} className="me-2" />
+          <Image src={logo} alt={`${config.projectName} logo`} width={16} height={16} className="me-2 w-4 h-4" />
           {config.projectName}
         </h1>
         <Image
