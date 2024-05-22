@@ -22,6 +22,7 @@
 # misc
 /public/storage
 storage/log
+.do
 .DS_Store
 *.pem
 *.key
