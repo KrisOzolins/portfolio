@@ -26,11 +26,11 @@ function Icon({
 //   className: PropTypes.string,
 // };
 
-// Icon.defaultProps = {
-//   style: 'solid',
-//   size: '1x',
-//   color: '',
-//   className: '',
-// };
+Icon.defaultProps = {
+  style: 'solid',
+  size: '1x',
+  color: '',
+  className: '',
+};
 
 export default Icon;

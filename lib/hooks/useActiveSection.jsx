@@ -6,9 +6,11 @@ const useActiveSection = (sectionIds) => {
   const observerRef = useRef(null);
   const detailsObserverRef = useRef(null);
 
+  const doc = typeof document !== 'undefined' ? document : null;
+
   const sectionIdsWithoutDetails = sectionIds.filter((sectionId) => sectionId !== 'details');
-  const sectionElements = sectionIdsWithoutDetails.map((sectionId) => document.getElementById(sectionId));
-  const detailsElement = document.getElementById('details');
+  const sectionElements = sectionIdsWithoutDetails.map((sectionId) => doc?.getElementById(sectionId));
+  const detailsElement = doc?.getElementById('details');
 
   useEffect(() => {
     if (sectionElements.some((sectionElement) => !sectionElement) || sectionElements.length !== sectionIdsWithoutDetails.length || !detailsElement) {

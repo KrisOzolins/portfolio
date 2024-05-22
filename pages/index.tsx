@@ -18,6 +18,7 @@ import { withWidth } from '@/lib/hooks/useWidth';
 import useActiveSection from '@/lib/hooks/useActiveSection';
 import { parseWorkExperience, parseEducation, parseSkills, detectUrl } from '@/helpers';
 import config from '@/config';
+import useClient from '@/lib/hooks/useClient';
 
 // Components
 import ConditionalWrapper from '@/components/common/ConditionalWrapper';
@@ -182,13 +183,25 @@ const SemanticDate = ({ date }: { date: string }) => {
 };
 
 // Home
-function Portfolio({ isBlog = false, isWiki = false, width = 0, ssrProp }: { isBlog?: boolean; isWiki?: boolean; width?: number; ssrProp: string }) {
+function Portfolio({
+  isBlog = false,
+  isWiki = false,
+  width = 0,
+  details,
+}: {
+  isBlog?: boolean;
+  isWiki?: boolean;
+  width?: number;
+  details: Array<any>;
+}) {
   const formFields = {
     name: '',
     email: '',
     subject: '',
     message: '',
   };
+
+  const isClient = useClient();
 
   // Redux state.
   const notification = useSelector((state: any) => state.app.notification);
@@ -211,23 +224,31 @@ function Portfolio({ isBlog = false, isWiki = false, width = 0, ssrProp }: { isB
 
   const recaptchaRef = createRef<ReCAPTCHA>();
 
-  useEffect(() => {
-    axios
-      .get(`${config.apiServerUrl}/details`)
-      .then((response) => {
-        setWork(parseWorkExperience(response.data.details.find((detail: any) => detail.file === 'work.md')?.content || '').slice(1));
-        setEducation(parseEducation(response.data.details.find((detail: any) => detail.file === 'education.md')?.content || ''));
-        setSkills(parseSkills(response.data.details.find((detail: any) => detail.file === 'skills.md')?.content || ''));
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      })
-      .finally(() => {
-        // ...
-      });
+  // useEffect(() => {
+  //   axios
+  //     .get(`${config.apiServerUrl}/details`)
+  //     .then((response) => {
+  //       setWork(parseWorkExperience(response.data.details.find((detail: any) => detail.file === 'work.md')?.content || '').slice(1));
+  //       setEducation(parseEducation(response.data.details.find((detail: any) => detail.file === 'education.md')?.content || ''));
+  //       setSkills(parseSkills(response.data.details.find((detail: any) => detail.file === 'skills.md')?.content || ''));
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     })
+  //     .finally(() => {
+  //       // ...
+  //     });
 
-    return () => {};
-  }, []);
+  //   return () => {};
+  // }, []);
+
+  useEffect(() => {
+    if (details) {
+      setWork(parseWorkExperience(details.find((detail: any) => detail.file === 'work.md')?.content || '').slice(1));
+      setEducation(parseEducation(details.find((detail: any) => detail.file === 'education.md')?.content || ''));
+      setSkills(parseSkills(details.find((detail: any) => detail.file === 'skills.md')?.content || ''));
+    }
+  }, [details]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -673,9 +694,13 @@ function Portfolio({ isBlog = false, isWiki = false, width = 0, ssrProp }: { isB
 }
 
 export const getServerSideProps = async (context: any) => {
+  const { params, req, res, query } = context;
+
+  const details = await axios.get(`${config.apiServerUrl}/details`);
+
   return {
     props: {
-      ssrProp: 'Test ssr prop',
+      details: details.data.details,
     },
   };
 };
