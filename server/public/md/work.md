@@ -39,3 +39,8 @@
 * Date: 2021 - 2024
 * Tech: Ruby/Rails, PostgreSQL, HTML5, CSS3, JS, React, AWS, Docker
 * Desc: Over several years, I contributed as a senior full-stack developer to one of the leading online guitar learning platforms. My role involved working on a Rails/React monolith application, where I further strengthened many essential skills. These included not only programming skills, but also collaboration and communication with a team, large-scale codebase management, strategic decision-making and planning, DevOps practices, performance optimization, security, and understanding the business dynamics of a major project.
+
+## Full-stack developer / planetargon.com
+* Date: 2024 - current
+* Tech: PHP, Laravel
+* Desc: Currently, I am working as a full-stack developer at Planet Argon. Working with a team of talented developers and clients such as Nike.
