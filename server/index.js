@@ -7,6 +7,7 @@ const path = require('path');
 const os = require('os');
 const cluster = require('cluster');
 const HttpStatusCode = require('axios').HttpStatusCode;
+const chalk = require('chalk');
 
 // Other includes
 const Scheduler = require('./jobs/Scheduler');
@@ -59,14 +60,14 @@ app.use('*', (req, res, next) => {
 (async () => {
   try {
     Scheduler.setup();
-    console.log('Scheduler has been started...');
+    console.log(` ${chalk.green(`✓`)} Scheduler has been started...`);
 
     // Always attempt to synchronize the database according to the model definitions.
     await db.sequelize.sync({ alter: true });
-    console.log('Database synced.');
+    console.log(` ${chalk.green(`✓`)} Database synced.`);
 
     server.listen(PORT, () => {
-      console.log(`Server is listening on port ${PORT}`);
+      console.log(` ${chalk.green(`✓`)} Server is listening on port ${PORT}`);
     });
 
     io.on('connection', (socket) => handleSocketIO(io, socket));
