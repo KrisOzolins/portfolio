@@ -15,6 +15,7 @@ import config from '@/config';
 
 import Layout from '@/components/Layout';
 
+// Styles
 import '@/styles/globals.scss';
 
 // Add Font Awesome icons.
@@ -50,14 +51,14 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>{title} - KrisOzolins.com</title>
-        <meta name="description" content="Krisjanis Ozolins' portfolio and blog." />
+        <meta name="description" content="Krisjanis Ozolin's portfolio and blog." />
         <meta name="keywords" content="portfolio, web, development, javascript, react, nextjs, nodejs" />
         <meta name="author" content="Krisjanis Ozolins" />
         <meta property="og:title" content="Krisjanis Ozolins Portfolio" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={config.baseUrl} />
         <meta property="og:image" content={`${config.baseUrl}/resources/images/og-bg.png`} />
-        <meta property="og:description" content="Krisjanis Ozolins' portfolio and blog." />
+        <meta property="og:description" content="Krisjanis Ozolin's portfolio and blog." />
         <meta property="og:site_name" content="Krisjanis Ozolins Portfolio" />
         <meta property="og:locale" content="en_US" />
       </Head>
