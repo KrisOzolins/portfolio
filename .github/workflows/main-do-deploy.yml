@@ -61,7 +61,7 @@ jobs:
           # APP_ID: 6caf8a20-bd2e-408b-817a-f0c5de6e19e2
           DO_API_TOKEN: ${{ secrets.DO_API_TOKEN }}
         run: |
-          doctl apps create-deployment 6caf8a20-bd2e-408b-817a-f0c5de6e19e2 --format ID,Status
+          doctl apps create-deployment 6caf8a20-bd2e-408b-817a-f0c5de6e19e2
           # curl -X POST "https://api.digitalocean.com/v2/apps/6caf8a20-bd2e-408b-817a-f0c5de6e19e2/deployments" \
           # -H "Authorization: Bearer $DO_API_TOKEN" \
           # -H "Content-Type: application/json" \
