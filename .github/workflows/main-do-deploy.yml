@@ -51,6 +51,11 @@ jobs:
       #     cd server
       #     npm test
 
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_API_TOKEN }}
+
       - name: Trigger DigitalOcean App Platform Deploy
         env:
           # APP_ID: 6caf8a20-bd2e-408b-817a-f0c5de6e19e2
