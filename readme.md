@@ -19,6 +19,7 @@ My personal portfolio project used to showcase some of my skills, as reference f
 * ...
 
 ## To Do
+* [ ] Test GHA CI/CD pipeline.
 * [ ] ...
 
 ## License
