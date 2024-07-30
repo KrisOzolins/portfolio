@@ -4,6 +4,10 @@ const ejs = require('ejs');
 const transporter = require('./config/mail');
 const HttpStatusCode = require('axios').HttpStatusCode;
 const Recaptcha = require('./lib/Recaptcha');
+const { oauthProtect, protect, admin, ownerOrAdmin } = require('./middleware/auth');
+const passport = require('passport');
+const db = require('./models');
+const config = require('./config');
 
 // Inline routes
 router.get('/', (req, res) => {
@@ -85,20 +89,30 @@ const commentsController = require('./controllers/commentsController');
 
 // Controllers
 // Post routes
+router.get('/posts/count', postsController.getPostsCount);
 router.get('/posts', postsController.getPosts);
-router.post('/posts', postsController.createPost);
+router.get('/posts/tags', postsController.getTags);
+router.post('/posts', protect, admin, postsController.createPost);
+router.post('/posts/:id/like', postsController.likePost);
 router.get('/posts/:id', postsController.getPost);
-router.put('/posts/:id', postsController.updatePost);
-router.delete('/posts/:id', postsController.deletePost);
+router.put('/posts/:id', protect, admin, postsController.updatePost);
+router.delete('/posts/:id', protect, admin, postsController.deletePost);
+router.get('/posts/slug/:slug', postsController.getPostBySlug);
+router.get('/posts/tag/:tag', postsController.getPostsByTag);
 
 // Comment routes
-router.get('/posts/:id/comments', commentsController.getComments);
-router.post('/posts/:id/comments', commentsController.createComment);
-router.get('/posts/:id/comments/:commentId', commentsController.getComment);
-router.put('/posts/:id/comments/:commentId', commentsController.updateComment);
-router.delete('/posts/:id/comments/:commentId', commentsController.deleteComment);
+// router.get('/posts/:id/comments', commentsController.getComments);
+router.post('/posts/:id/comments', oauthProtect, commentsController.createComment);
+// router.get('/posts/:id/comments/:commentId', commentsController.getComment);
+// router.put('/posts/:id/comments/:commentId', commentsController.updateComment);
+// router.delete('/posts/:id/comments/:commentId', commentsController.deleteComment);
 
 // User routes
+router.get('/users', protect, admin, usersController.getUsers);
+router.get('/users/:id', protect, ownerOrAdmin, usersController.getUser);
+router.post('/users/login', usersController.login);
+router.post('/users/logout', usersController.logout);
+router.post('/users/authenticated', usersController.isAuthenticated);
 // ...
 
 // Admin routes
@@ -106,5 +120,62 @@ router.delete('/posts/:id/comments/:commentId', commentsController.deleteComment
 
 // Auth routes
 // ...
+
+// Feature flag routes
+router.get('/feature-flags/:name', (req, res) => {
+  // res.json({ name: req.params.name, enabled: true });
+  db.FeatureFlag.findOne({ where: { name: req.params.name } }).then((featureFlag) => {
+    if (!featureFlag) {
+      res.status(HttpStatusCode.NotFound).json({ message: 'Feature flag not found.' });
+    } else {
+      res.json({ name: featureFlag.name, enabled: featureFlag.enabled });
+    }
+  });
+});
+
+// Google OAuth routes
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get(
+  '/auth/google/callback',
+  passport.authenticate('google', {
+    successReturnToOrRedirect: `${config.publicBaseUrl}/blog`,
+    failureRedirect: `${config.publicBaseUrl}/blog`,
+    failureMessage: true,
+    keepSessionInfo: true,
+  }),
+  // (req, res) => {
+  // Save user to the db.
+  // db.User.findOrCreate({
+  //   // where: { google_id: req.user.id },
+  //   where: { email: req.user.emails[0].value },
+  //   defaults: {
+  //     email: req.user.emails[0].value,
+  //     googleId: req.user.id,
+  //     photo: req.user.photos[0].value,
+  //     fullName: req.user.displayName,
+  //     role: 'user',
+  //     verified: true,
+  //     settings: {
+  //       theme: 'dark',
+  //     },
+  //     lastLogin: new Date(),
+  //   }
+  // }).then(([user, created]) => {
+  //   console.log('User created:', created);
+  // });
+  // res.redirect('http://localhost:3000/blog'); // Redirect back to the app.
+  // }
+);
+router.get('/auth/logout', (req, res) => {
+  req.logout(() => {
+    // res.redirect('http://localhost:3000/blog');
+    res.status(200).json({ message: 'Logout successful.' });
+  });
+});
+router.get('/auth/user', (req, res) => {
+  // console.log('req.user:', req.user);
+  // console.log('is authenticated:', req.isAuthenticated());
+  res.send(req.user);
+});
 
 module.exports = router;

@@ -1,0 +1,159 @@
+{
+  "Blog": {
+    "title": "Mans bloga virsraksts",
+    "text": "..."
+  },
+  "PrivacyPolicy": {
+    "header": {
+      "title": "Privātuma politika",
+      "intro": "Laipni lūdzam mūsu privātuma politikas lapā. Šī politika izklāsta, kā mēs apkopojam, izmantojam, izpaužam un aizsargājam Jūsu informāciju, kad apmeklējat mūsu vietni. Lūdzu, rūpīgi izlasiet šo politiku."
+    },
+    "definitions": {
+      "title": "Definīcijas",
+      "data": [
+        {
+          "term": "Personas dati",
+          "definition": "Informācija, ko var izmantot, lai tieši vai netieši identificētu indivīdu."
+        },
+        {
+          "term": "Sīkdatnes",
+          "definition": "Mazi datu faili, kas tiek glabāti Jūsu ierīcē (piemēram, datorā vai mobilajā ierīcē), kad apmeklējat tīmekļa vietni."
+        },
+        {
+          "term": "Google Analytics",
+          "definition": "Tīmekļa analītikas pakalpojums, ko nodrošina Google, lai izsekotu un ziņotu par vietnes trafiku."
+        },
+        {
+          "term": "Google OAuth",
+          "definition": "Droša autentifikācijas struktūra, ko nodrošina Google lietotāju autentifikācijai."
+        },
+        {
+          "term": "JWT (JSON tīmekļa tokens)",
+          "definition": "Kompakts, URL drošs līdzeklis, lai pārraidītu prasības starp divām pusēm."
+        },
+        {
+          "term": "New Relic APM",
+          "definition": "Lietojumprogrammu veiktspējas uzraudzības rīks, ko nodrošina New Relic, lai uzraudzītu un optimizētu vietnes veiktspēju."
+        }
+      ]
+    },
+    "content": {
+      "dataCollection": {
+        "title": "Datu vākšana",
+        "text": [
+          {
+            "paragraph": "KrisOzolins Portfolio un Blog mēs prioritizējam Jūsu privātumu un esam atklāti par ierobežotu sīkdatņu un personisko datu izmantošanu mūsu vietnē. Mūsu vietne izmanto sīkdatnes tikai analītikas nolūkos, ko veicina Google Analytics, lai palīdzētu mums saprast, kā mūsu apmeklētāji mijiedarbojas ar vietni. Šī informācija var ietvert Jūsu IP adresi, pārlūkprogrammas tipu, atsauces/iziešanas lapas un Jūsu apmeklējumu datumu/laiku. Šī informācija ļauj mums nepārtraukti uzlabot Jūsu lietotāja pieredzi."
+          },
+          {
+            "paragraph": "Tiem, kas izvēlas izmantot Google OAuth autentifikācijai, lūdzu, esiet pārliecināti, ka šis process tiek pārvaldīts tieši caur Google drošo autentifikācijas struktūru. Mēs saņemam tikai nepieciešamo profila informāciju, lai izveidotu vai piekļūtu Jūsu kontam, neglabājot nekādus sensitīvus personiskos datus uz mūsu serveriem."
+          },
+          {
+            "paragraph": "Mūsu administrācijas CMS panelis izmanto pašizstrādātu JWT (JSON tīmekļa tokens) autentifikācijas sistēmu, nodrošinot, ka tikai autorizēti lietotāji var piekļūt noteiktām funkcionalitātēm. Šī sistēma ir izstrādāta ar drošību prātā, aizsargājot mūsu platformas integritāti."
+          },
+          {
+            "paragraph": "Turklāt mēs izmantojam New Relic's APM (Lietojumprogrammu veiktspējas uzraudzības) rīku, lai nodrošinātu mūsu vietnes veiktspējas optimizāciju un ātri identificētu jebkādas problēmas, kas var ietekmēt Jūsu pieredzi. New Relic APM neapkopo personisko informāciju, bet palīdz mums uzraudzīt mūsu vietnes veselību un veiktspēju."
+          }
+        ]
+      },
+      "dataUsage": {
+        "title": "Datu izmantošana",
+        "text": [
+          {
+            "paragraph": "Mēs nedalāmies, nepārdodam, neīrējam un netirgojam lietotāju datus ar trešajām pusēm to komerciālajām vajadzībām. Sīkdatņu izmantošana un jebkuri dati, kas tiek apkopoti caur Google OAuth, JWT autentifikāciju un New Relic APM, ir tikai iepriekš minētajiem nolūkiem."
+          }
+        ]
+      },
+      "userRights": {
+        "title": "Lietotāju tiesības",
+        "list": {
+          "title": "Jums ir tiesības:",
+          "items": [
+            "Piekļūt personiskajiem datiem, kas mums ir par jums.",
+            "Pieprasīt neprecīzu personisko datu labošanu.",
+            "Pieprasīt Jūsu personisko datu dzēšanu.",
+            "Iebilst pret Jūsu personisko datu apstrādi.",
+            "Pieprasīt Jūsu personisko datu apstrādes ierobežošanu.",
+            "Pieprasīt Jūsu personisko datu pārsūtīšanu."
+          ],
+          "note": "Lai izmantotu šīs tiesības, lūdzu, sazinieties ar mums pa e-pastu kris@krisozolins.com."
+        }
+      },
+      "dataRetention": {
+        "title": "Datu saglabāšana",
+        "text": [
+          {
+            "paragraph": "Mēs saglabājam apkopotos datus tik ilgi, cik nepieciešams, lai izpildītu šajā privātuma politikā izklāstītos mērķus, ja vien likumā nav noteikts vai atļauts ilgāks saglabāšanas periods."
+          }
+        ]
+      },
+      "securityMeasures": {
+        "title": "Drošības pasākumi",
+        "text": [
+          {
+            "paragraph": "Mēs ieviešam dažādus drošības pasākumus, lai aizsargātu Jūsu personiskos datus, ieskaitot šifrēšanu un drošus serverus. Tomēr, lūdzu, ņemiet vērā, ka neviena metode datu pārraidei internetā vai elektroniskai glabāšanai nav 100% droša."
+          }
+        ]
+      },
+      "3rdPartyServices": {
+        "title": "Trešo pušu pakalpojumi",
+        "list": {
+          "title": "Lai iegūtu vairāk informācijas par to, kā Google Analytics, Google OAuth un New Relic APM apstrādā Jūsu datus, lūdzu, skatiet to attiecīgās privātuma politikas:",
+          "items": [
+            {
+              "name": "Google Analytics privātuma politika",
+              "url": "https://policies.google.com/privacy"
+            },
+            {
+              "name": "Google OAuth privātuma politika",
+              "url": "https://policies.google.com/privacy"
+            },
+            {
+              "name": "New Relic APM privātuma politika",
+              "url": "https://newrelic.com/termsandconditions/privacy"
+            }
+          ]
+        }
+      },
+      "policyChanges": {
+        "title": "Politikas izmaiņas",
+        "text": [
+          {
+            "paragraph": "Mēs varam atjaunināt šo privātuma politiku laiku pa laikam. Mēs Jūs informēsim par jebkurām izmaiņām, ievietojot jauno privātuma politiku šajā lapā. Izmaiņas šajā privātuma politikā stājas spēkā, kad tās tiek ievietotas šajā lapā."
+          }
+        ]
+      },
+      "contactInfo": {
+        "title": "Kontaktinformācija",
+        "text": [
+          {
+            "paragraph": "Ja jums ir kādi jautājumi vai bažas par šo privātuma politiku, lūdzu, sazinieties ar mums pa e-pastu kris@krisozolins.com."
+          },
+          {
+            "paragraph": "Izmantojot mūsu vietni, Jūs piekrītat mūsu privātuma politikai un sīkdatņu izmantošanai analītikas un nepieciešamās vietnes funkcionalitātes nolūkos. Mēs esam apņēmušies aizsargāt Jūsu privātumu un nodrošināt drošu tiešsaistes pieredzi."
+          }
+        ]
+      }
+    },
+    "contentOld": [
+      {
+        "paragraph": "KrisOzolins Portfolio un Blog mēs prioritizējam Jūsu privātumu un esam atklāti par ierobežotu sīkdatņu un personisko datu izmantošanu mūsu vietnē. Mūsu vietne izmanto sīkdatnes tikai analītikas nolūkos, ko veicina Google Analytics, lai palīdzētu mums saprast, kā mūsu apmeklētāji mijiedarbojas ar vietni. Šī informācija ļauj mums nepārtraukti uzlabot Jūsu lietotāja pieredzi."
+      },
+      {
+        "paragraph": "Tiem, kas izvēlas izmantot Google OAuth autentifikācijai, lūdzu, esiet pārliecināti, ka šis process tiek pārvaldīts tieši caur Google drošo autentifikācijas struktūru. Mēs saņemam tikai nepieciešamo profila informāciju, lai izveidotu vai piekļūtu Jūsu kontam, neglabājot nekādus sensitīvus personiskos datus uz mūsu serveriem."
+      },
+      {
+        "paragraph": "Mūsu administrācijas CMS panelis izmanto pašizstrādātu JWT (JSON tīmekļa tokens) autentifikācijas sistēmu, nodrošinot, ka tikai autorizēti lietotāji var piekļūt noteiktām funkcionalitātēm. Šī sistēma ir izstrādāta ar drošību prātā, aizsargājot mūsu platformas integritāti."
+      },
+      {
+        "paragraph": "Turklāt mēs izmantojam New Relic's APM (Lietojumprogrammu veiktspējas uzraudzības) rīku, lai nodrošinātu mūsu vietnes veiktspējas optimizāciju un ātri identificētu jebkādas problēmas, kas var ietekmēt Jūsu pieredzi. New Relic APM neapkopo personisko informāciju, bet palīdz mums uzraudzīt mūsu vietnes veselību un veiktspēju."
+      },
+      {
+        "paragraph": "Mēs nedalāmies, nepārdodam, neīrējam un netirgojam lietotāju datus ar trešajām pusēm to komerciālajām vajadzībām. Sīkdatņu izmantošana un jebkuri dati, kas tiek apkopoti caur Google OAuth, JWT autentifikāciju un New Relic APM, ir tikai iepriekš minētajiem nolūkiem."
+      },
+      {
+        "paragraph": "Izmantojot mūsu vietni, Jūs piekrītat mūsu privātuma politikai un sīkdatņu izmantošanai analītikas un nepieciešamās vietnes funkcionalitātes nolūkos. Mēs esam apņēmušies aizsargāt Jūsu privātumu un nodrošināt drošu tiešsaistes pieredzi."
+      }
+    ],
+    "lastUpdated": "Pēdējo reizi atjaunots: 2024. gada 18. jūlijs"
+  }
+}

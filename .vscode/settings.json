@@ -1,4 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib", // Always use the workspace version of TypeScript for the project.
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  // "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

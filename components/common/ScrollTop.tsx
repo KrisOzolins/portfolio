@@ -24,7 +24,7 @@ const ScrollTop = () => {
       <button
         aria-label="Scroll To Top"
         onClick={handleScrollTop}
-        className="rounded-full transition-all p-2 text-gray-light bg-gray-dark hover:bg-gray-regular"
+        className="rounded-full transition-all p-2 text-light-gray-light bg-light-gray-dark hover:bg-light-gray-regular dark:text-gray-light dark:bg-gray-dark dark:hover:bg-gray-regular"
       >
         <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path

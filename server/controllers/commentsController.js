@@ -1,5 +1,6 @@
 const HttpStatusCode = require('axios').HttpStatusCode;
 const db = require('../models');
+const Recaptcha = require('../lib/Recaptcha');
 
 exports.getComments = (req, res) => {
   db.Comment.findAll()
@@ -12,7 +13,16 @@ exports.getComments = (req, res) => {
 };
 
 exports.createComment = async (req, res) => {
-  db.Comment.create(({ title, content } = req.body))
+  const { token } = req.body;
+
+  // Verify reCAPTCHA.
+  if (!(await Recaptcha.verify(token))) {
+    res.status(HttpStatusCode.BadRequest).json({ message: 'reCAPTCHA verification failed.' });
+    return;
+  }
+
+  // db.Comment.create(({ title, content } = req.body))
+  db.Comment.create({ ...({ content, postId } = req.body), userId: req?.user.id })
     .then((comment) => {
       res.json(comment);
     })

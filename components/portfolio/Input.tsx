@@ -17,7 +17,7 @@ function Input({
   error?: string | null;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }) {
-  const className = `bg-white border-2 text-gray-dark text-sm rounded-lg block w-full p-2.5 focus:outline-none focus:border-secondary-accent-regular hover:border-gray-regular ${error ? 'border-error-dark pe-9' : 'border-gray-light'}`;
+  const className = `bg-white border-2 text-light-gray-dark dark:text-gray-dark text-sm rounded-lg block w-full p-2.5 focus:outline-none focus:border-secondary-accent-regular hover:border-gray-regular ${error ? 'border-error-dark pe-9' : 'border-gray-light'}`;
 
   return (
     <>

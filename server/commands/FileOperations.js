@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Node.js based file manipulation command line script
+// Node.js based file manipulation command line script.
 const yargs = require('yargs'); // Or use commander.js.
 const sh = require('shelljs');
 const upath = require('upath');

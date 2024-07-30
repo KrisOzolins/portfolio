@@ -27,7 +27,7 @@ class Scheduler {
 
       setTimeout(() => {
         job.callback();
-        // Schedule the next execution
+        // Schedule the next execution.
         this.scheduleNext(job);
       }, timeout);
     } catch (e) {
@@ -39,10 +39,10 @@ class Scheduler {
 module.exports = Scheduler;
 
 // Usage:
-const scheduler = new Scheduler();
+// const scheduler = new Scheduler();
 
-scheduler.addJob('*/5 * * * *', () => {
-  console.log('Running job at', moment().format());
-});
+// scheduler.addJob('*/5 * * * *', () => {
+//   console.log('Running job at', moment().format());
+// });
 
-scheduler.start();
+// scheduler.start();

@@ -13,11 +13,15 @@ function Hero({
   leftSpacing = 0,
   headerVisible = true,
   toggleHeaderVisibility,
+  toggleDarkMode,
+  darkMode = true,
 }: {
   width?: number;
   leftSpacing?: number;
   headerVisible?: boolean;
   toggleHeaderVisibility: () => void;
+  toggleDarkMode: () => void;
+  darkMode?: boolean;
 }) {
   const navSecondaryRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
@@ -30,13 +34,13 @@ function Hero({
         const el = navSecondaryRef.current;
         if (window.scrollY > 0) {
           if (el.classList.contains('absolute')) {
-            el.classList.add('bg-background', 'shadow-lg', 'fixed');
-            el.classList.remove('absolute');
+            el.classList.add(darkMode ? 'bg-background' : 'bg-light-background', 'shadow-lg', 'fixed');
+            el.classList.remove('absolute', 'text-white');
           }
         } else {
           if (el.classList.contains('fixed')) {
-            el.classList.remove('bg-background', 'shadow-lg', 'fixed');
-            el.classList.add('absolute');
+            el.classList.remove('bg-background', 'bg-light-background', 'text-white', 'shadow-lg', 'fixed');
+            el.classList.add('absolute', 'text-white');
           }
         }
       }
@@ -44,7 +48,7 @@ function Hero({
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [darkMode]);
 
   const bgStyle = {
     // backgroundPosition: `center -${Math.max(0, scrollY / 3)}px`,
@@ -59,10 +63,12 @@ function Hero({
         scrollY={scrollY}
         toggleHeaderVisibility={toggleHeaderVisibility}
         headerVisible={headerVisible}
+        toggleDarkMode={toggleDarkMode}
+        darkMode={darkMode}
       />
       <div className={`${styles['hero-bg']} grayscale rounded-bl-xl`} style={bgStyle}></div>
       <section className={`${styles.hero} hero h-screen`} id="home">
-        <div className="h-full flex flex-col justify-center items-center relative">
+        <div className="h-full flex flex-col justify-center items-center relative text-white">
           {/* <Particles /> */}
           <h1 className="text-7xl mb-3 font-bold">
             Kris<span className="font-outlined">Ozolins</span>

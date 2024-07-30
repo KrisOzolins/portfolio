@@ -1,8 +1,31 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { headers, cookies } from 'next/headers';
+
+const { config, library } = require('@fortawesome/fontawesome-svg-core'); // Need to use CJS import here because of a bug - https://github.com/FortAwesome/Font-Awesome/issues/19348.
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// import { AuthProvider } from '@/app/admin/_lib/context/AuthContext';
+import client from '@/lib/utils/api/client';
+import UsersService from '@/lib/services/Users';
+import store from '@/store';
+// import { setUser } from '@/store/slices/appSlice';
+import StoreProvider from '@/app/admin/_components/StoreProvider';
+import Header from '@/app/admin/_components/Header';
+import Logout from '@/app/admin/_components/Logout';
+import Menu from './_components/Menu';
+
+// Styles
 import './globals.scss';
 
+// Config for Font Awesome
+config.autoAddCss = false;
+
+// Fonts
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -10,96 +33,52 @@ export const metadata: Metadata = {
   description: "Admin panel for Krisjanis Ozolins' portfolio and blog.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = headers();
+  const isLoggedIn = cookies().get('jwt') || false;
+  // const state = store.getState();
+
+  // console.log('isLoggedIn:', isLoggedIn);
+  // console.log('requestHeaders:', requestHeaders);
+  // console.log('state:', state);
+
+  let currentUser = null;
+
+  if (isLoggedIn) {
+    const token = isLoggedIn.value;
+
+    UsersService.token = token;
+
+    currentUser = await UsersService.getUser(token);
+
+    // Set token for axios client.
+    // client.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+    // Set Redux user state.
+    // store.dispatch(setUser(currentUser));
+  }
+
   return (
     <html lang="en">
-      {/* <body className={inter.className}>{children}</body> */}
+      <head>{/* <title>Test</title> */}</head>
       <body className={inter.className}>
-        <div className="flex min-h-screen bg-gray-100">
-          <aside className="w-64 bg-gray-800 text-gray-200">
-            <div className="flex justify-start items-center h-16 p-4 text-xl font-bold border-b border-gray-700">Admin Dashboard</div>
-            <nav className="mt-4">
-              <ul>
-                <li>
-                  <Link href="/admin" className="block py-2.5 px-4 hover:bg-gray-700">
-                    Overview
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/admin/posts" className="block py-2.5 px-4 hover:bg-gray-700">
-                    Posts
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/admin/users" className="block py-2.5 px-4 hover:bg-gray-700">
-                    Users
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/admin/settings" className="block py-2.5 px-4 hover:bg-gray-700">
-                    Settings
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/admin/reports" className="block py-2.5 px-4 hover:bg-gray-700">
-                    Reports
-                  </Link>
-                </li>
-                <li>
-                  <hr className="my-4 border-t border-gray-700" />
-                </li>
-                <li>
-                  <Link href="/admin/profile" className="block py-2.5 px-4 hover:bg-gray-700">
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/logout" className="block py-2.5 px-4 hover:bg-gray-700">
-                    Logout
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </aside>
-
-          <main className="flex-1 p-6">
-            <header className="bg-white shadow px-4 -mx-6 -mt-6 mb-6">
-              <div className="container mx-auto flex justify-between items-center h-16">
-                <h1 className="text-2xl font-semibold text-gray-800">Overview</h1>
-                <div className="flex items-center space-x-4">
-                  {/* <span className="text-gray-600">Admin</span> */}
-                  <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add New</button>
-                </div>
-              </div>
-            </header>
-
-            {/* <header className="flex items-center justify-between pb-4 border-b">
-              <h1 className="text-2xl font-semibold">Dashboard</h1>
-              <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add New</button>
-            </header> */}
-
-            <section className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article className="p-4 bg-white rounded shadow">
-                  <h2 className="text-xl font-semibold">Card Title</h2>
-                  <p className="mt-2 text-gray-600">Card content goes here...</p>
-                </article>
-                <article className="p-4 bg-white rounded shadow">
-                  <h2 className="text-xl font-semibold">Card Title</h2>
-                  <p className="mt-2 text-gray-600">Card content goes here...</p>
-                </article>
-                <article className="p-4 bg-white rounded shadow">
-                  <h2 className="text-xl font-semibold">Card Title</h2>
-                  <p className="mt-2 text-gray-600">Card content goes here...</p>
-                </article>
-              </div>
-            </section>
-          </main>
+        <div className="flex min-h-screen bg-gray-100 dark:bg-gray-600">
+          {/* <AuthProvider> */}
+          <StoreProvider currentUser={currentUser}>
+            <Menu isLoggedIn={isLoggedIn} currentUser={currentUser} />
+            <main className="flex-1 p-6">{children}</main>
+          </StoreProvider>
+          {/* </AuthProvider> */}
         </div>
+        <ToastContainer
+          position="bottom-center"
+          // autoClose={false}
+          // style={{ width: "384px" }}
+        />
       </body>
     </html>
   );
