@@ -8,7 +8,9 @@ class Posts extends BaseService {
 
   static async getPosts(options: { sort?: string; search?: string } = {}): Promise<any> {
     // Fake wait for 1 second.
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    // if (process.env.NODE_ENV !== 'production') {
+    //   await new Promise((resolve) => setTimeout(resolve, 1000));
+    // }
 
     try {
       let url = `${this.BASE_URL}`;

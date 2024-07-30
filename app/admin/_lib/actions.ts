@@ -42,7 +42,9 @@ import UsersService from '@/lib/services/Users';
 
 export async function authenticate(_currentState: unknown, formData: FormData) {
   // Fake delay to simulate async request.
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  if (process.env.NODE_ENV !== 'production') {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  }
 
   try {
     // const response = await fetch('/api/auth/signin', { method: 'POST', body: formData });

@@ -13,7 +13,9 @@ class Users extends BaseService {
 
   static async getUsers(options: { sort?: string } = {}): Promise<any> {
     // Fake wait for 1 second to test loading states.
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (process.env.NODE_ENV !== 'production') {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
 
     try {
       let url = `${this.BASE_URL}`;

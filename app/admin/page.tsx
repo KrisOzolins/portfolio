@@ -13,7 +13,9 @@ export default async function HomePage() {
   // console.log(user);
 
   // Simulate a delay to show the loading state (loading.tsx).
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  if (process.env.NODE_ENV !== 'production') {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+  }
 
   return (
     <>

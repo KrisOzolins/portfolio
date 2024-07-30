@@ -101,7 +101,9 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
   // };
 
   const submitPost = async (values: PostValues, { setFieldError }: { setFieldError: any }) => {
-    await sleep(500);
+    if (process.env.NODE_ENV !== 'production') {
+      await sleep(500);
+    }
 
     try {
       PostsService.token = cookies.jwt;
