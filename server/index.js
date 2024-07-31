@@ -1,3 +1,8 @@
+// New Relic
+if (process.env.NODE_ENV === 'production') {
+  require('newrelic');
+}
+
 // System packages
 const express = require('express');
 const http = require('http'); // Required for socket.io.
@@ -7,6 +12,7 @@ const path = require('path');
 const os = require('os');
 const cluster = require('cluster');
 const HttpStatusCode = require('axios').HttpStatusCode;
+const chalk = require('chalk');
 
 // Other includes
 const Scheduler = require('./jobs/Scheduler');
@@ -18,7 +24,11 @@ const handleSocketIO = require('./socket');
 require('dotenv').config();
 const config = require('./config');
 const corsOptions = {
-  origin: '*', // Allow only this origin to access.
+  origin: ['http://localhost:3000', 'http://localhost:3001', config.publicBaseUrl], // Specify the exact origin.
+  credentials: true, // Allow credentials.
+  // allowedHeaders: ['Authorization', 'Content-Type', 'Location', 'Content-Length', 'X-Requested-With', 'Accept', 'Origin'],
+  // methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH', 'HEAD'],
+  // origin: '*', // Allow only this origin to access.
   // optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204.
 };
 
@@ -55,25 +65,33 @@ app.use('*', (req, res, next) => {
   res.status(HttpStatusCode.NotFound).json({ message: 'Not found.' });
 });
 
-// Start all the servers (HTTP, socket.io, DB, etc.).
-(async () => {
-  try {
-    Scheduler.setup();
-    console.log('Scheduler has been started...');
+if (process.env.NODE_ENV !== 'test') {
+  // Start all the servers (HTTP, socket.io, DB, etc.).
+  (async () => {
+    try {
+      Scheduler.setup();
+      console.log(` ${chalk.green(`✓`)} Scheduler has been started...`);
 
-    // Always attempt to synchronize the database according to the model definitions.
-    await db.sequelize.sync({ alter: true });
-    console.log('Database synced.');
+      // Always attempt to synchronize the database according to the model definitions.
+      await db.sequelize.sync({ alter: true });
+      await db.fixIndex();
+      console.log(` ${chalk.green(`✓`)} Database synced.`);
 
-    server.listen(PORT, () => {
-      console.log(`Server is listening on port ${PORT}`);
-    });
+      // Seed the database with a default admin user.
+      await db.seed();
 
-    io.on('connection', (socket) => handleSocketIO(io, socket));
-  } catch (error) {
-    console.error('Failed to synchronize the database:', error);
+      server.listen(PORT, () => {
+        console.log(` ${chalk.green(`✓`)} Server is listening on port ${PORT}...`);
+      });
 
-    // Optionally, exit the process if the error is critical.
-    // process.exit(1);
-  }
-})();
+      io.on('connection', (socket) => handleSocketIO(io, socket));
+    } catch (error) {
+      console.error(` ${chalk.red(`✗`)} Failed to synchronize the database: ${error.message}`);
+
+      // Optionally, exit the process if the error is critical.
+      // process.exit(1);
+    }
+  })();
+}
+
+module.exports = { app, server };

@@ -1,0 +1,159 @@
+{
+  "Blog": {
+    "title": "My blog title",
+    "text": "..."
+  },
+  "PrivacyPolicy": {
+    "header": {
+      "title": "Privacy Policy",
+      "intro": "Welcome to our Privacy Policy page. This policy outlines how we collect, use, disclose, and safeguard your information when you visit our website. Please read this policy carefully."
+    },
+    "definitions": {
+      "title": "Definitions",
+      "data": [
+        {
+          "term": "Personal Data",
+          "definition": "Information that can be used to identify an individual, directly or indirectly."
+        },
+        {
+          "term": "Cookies",
+          "definition": "Small data files stored on your device (e.g. computer or mobile device) when you visit a website."
+        },
+        {
+          "term": "Google Analytics",
+          "definition": "A web analytics service provided by Google to track and report website traffic."
+        },
+        {
+          "term": "Google OAuth",
+          "definition": "A secure authentication framework provided by Google for user authentication."
+        },
+        {
+          "term": "JWT (JSON Web Token)",
+          "definition": "A compact, URL-safe means of representing claims to be transferred between two parties."
+        },
+        {
+          "term": "New Relic APM",
+          "definition": "Application Performance Monitoring tool provided by New Relic to monitor and optimize website performance."
+        }
+      ]
+    },
+    "content": {
+      "dataCollection": {
+        "title": "Data Collection",
+        "text": [
+          {
+            "paragraph": "At KrisOzolins's Portfolio and Blog, we prioritize your privacy and are transparent about the limited use of cookies and personal data on our site. Our website uses cookies solely for analytics purposes, facilitated by Google Analytics, to help us understand how our visitors interact with the website. This information may include your IP address, browser type, referring/exit pages, and the dates/times of your visits. This information allows us to improve your user experience continually."
+          },
+          {
+            "paragraph": "For those opting to use Google OAuth for authentication, please be assured that this process is managed directly through Google's secure authentication framework. We only receive the necessary profile information to create or access your account, without storing any sensitive personal data on our servers."
+          },
+          {
+            "paragraph": "Our admin CMS panel utilizes a self-implemented JWT (JSON Web Token) authentication system, ensuring that only authorized users can access specific functionalities. This system is designed with security in mind, safeguarding the integrity of our platform."
+          },
+          {
+            "paragraph": "Additionally, we use New Relic's APM (Application Performance Monitoring) tool to ensure our website's performance is optimized and to quickly identify any issues that may impact your experience. New Relic APM does not collect personal information but helps us monitor our site's health and performance."
+          }
+        ]
+      },
+      "dataUsage": {
+        "title": "Data Usage",
+        "text": [
+          {
+            "paragraph": "We do not share, sell, rent, or trade user data with third parties for their commercial purposes. The use of cookies and any data collected through Google OAuth, JWT authentication, and New Relic APM are solely for the purposes mentioned above."
+          }
+        ]
+      },
+      "userRights": {
+        "title": "User Rights",
+        "list": {
+          "title": "You have the right to:",
+          "items": [
+            "Access the personal data we hold about you.",
+            "Request the correction of inaccurate personal data.",
+            "Request the deletion of your personal data.",
+            "Object to the processing of your personal data.",
+            "Request the restriction of processing your personal data.",
+            "Request the transfer of your personal data."
+          ],
+          "note": "To exercise these rights, please contact us at kris@krisozolins.com."
+        }
+      },
+      "dataRetention": {
+        "title": "Data Retention",
+        "text": [
+          {
+            "paragraph": "We retain the collected data for as long as necessary to fulfill the purposes outlined in this privacy policy unless a longer retention period is required or permitted by law."
+          }
+        ]
+      },
+      "securityMeasures": {
+        "title": "Security Measures",
+        "text": [
+          {
+            "paragraph": "We implement various security measures to protect your personal data, including encryption and secure servers. However, please be aware that no method of transmission over the Internet or electronic storage is 100% secure."
+          }
+        ]
+      },
+      "3rdPartyServices": {
+        "title": "Third-Party Services",
+        "list": {
+          "title": "For more information on how Google Analytics, Google OAuth, and New Relic APM handle your data, please refer to their respective privacy policies:",
+          "items": [
+            {
+              "name": "Google Analytics Privacy Policy",
+              "url": "https://policies.google.com/privacy"
+            },
+            {
+              "name": "Google OAuth Privacy Policy",
+              "url": "https://policies.google.com/privacy"
+            },
+            {
+              "name": "New Relic APM Privacy Policy",
+              "url": "https://newrelic.com/termsandconditions/privacy"
+            }
+          ]
+        }
+      },
+      "policyChanges": {
+        "title": "Policy Changes",
+        "text": [
+          {
+            "paragraph": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page. Changes to this privacy policy are effective when they are posted on this page."
+          }
+        ]
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "text": [
+          {
+            "paragraph": "If you have any questions or concerns about this privacy policy, please contact us at kris@krisozolins.com."
+          },
+          {
+            "paragraph": "By using our site, you consent to our Privacy Policy and the use of cookies for analytics and necessary site functionality. We are committed to protecting your privacy and ensuring a secure online experience."
+          }
+        ]
+      }
+    },
+    "contentOld": [
+      {
+        "paragraph": "At KrisOzolins's Portfolio and Blog, we prioritize your privacy and are transparent about the limited use of cookies and personal data on our site. Our website uses cookies solely for analytics purposes, facilitated by Google Analytics, to help us understand how our visitors interact with the website. This information allows us to improve your user experience continually."
+      },
+      {
+        "paragraph": "For those opting to use Google OAuth for authentication, please be assured that this process is managed directly through Google's secure authentication framework. We only receive the necessary profile information to create or access your account, without storing any sensitive personal data on our servers."
+      },
+      {
+        "paragraph": "Our admin CMS panel utilizes a self-implemented JWT (JSON Web Token) authentication system, ensuring that only authorized users can access specific functionalities. This system is designed with security in mind, safeguarding the integrity of our platform."
+      },
+      {
+        "paragraph": "Additionally, we use New Relic's APM (Application Performance Monitoring) tool to ensure our website's performance is optimized and to quickly identify any issues that may impact your experience. New Relic APM does not collect personal information but helps us monitor our site's health and performance."
+      },
+      {
+        "paragraph": "We do not share, sell, rent, or trade user data with third parties for their commercial purposes. The use of cookies and any data collected through Google OAuth, JWT authentication, and New Relic APM are solely for the purposes mentioned above."
+      },
+      {
+        "paragraph": "By using our site, you consent to our Privacy Policy and the use of cookies for analytics and necessary site functionality. We are committed to protecting your privacy and ensuring a secure online experience."
+      }
+    ],
+    "lastUpdated": "Last Updated: 18th Jul 2024"
+  }
+}

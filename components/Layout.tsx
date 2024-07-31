@@ -19,6 +19,8 @@ const Layout = ({
   showHero = true,
   width = 0,
   fonts = {},
+  toggleDarkMode,
+  darkMode = true,
 }: {
   children: React.ReactNode;
   showHeader?: boolean;
@@ -26,6 +28,8 @@ const Layout = ({
   showHero?: boolean;
   width?: number;
   fonts?: any;
+  toggleDarkMode: () => void;
+  darkMode?: boolean;
 }) => {
   const isClient = useClient();
 
@@ -49,11 +53,22 @@ const Layout = ({
   };
 
   return (
-    <div className={`app portfolio flex text-white font-body ${fonts.montserrat.variable} ${fonts.roboto.variable} ${fonts.firaCode.variable}`}>
+    <div
+      className={`app portfolio flex text-light-white dark:text-white font-body ${fonts.montserrat.variable} ${fonts.roboto.variable} ${fonts.firaCode.variable}`}
+    >
       {showHeader && <Header isMdOrBelow={isMdOrBelow} headerVisible={headerVisible} toggleHeaderVisibility={toggleHeaderVisibility} />}
       <div className={`flex-1${showHeader ? ` ml-${leftSpacing}` : ''}`}>
-        {showHero && <Hero width={width} leftSpacing={leftSpacing} headerVisible={headerVisible} toggleHeaderVisibility={toggleHeaderVisibility} />}
-        <main className="bg-background">{children}</main>
+        {showHero && (
+          <Hero
+            width={width}
+            leftSpacing={leftSpacing}
+            headerVisible={headerVisible}
+            toggleHeaderVisibility={toggleHeaderVisibility}
+            toggleDarkMode={toggleDarkMode}
+            darkMode={darkMode}
+          />
+        )}
+        <main className="bg-light-background dark:bg-background">{children}</main>
         {showFooter && <Footer />}
         {notification && <Notification type="info" message={notification} onClose={() => dispatch(setNotification(''))} />}
         {error && <Notification type="error" message={error} onClose={() => dispatch(setError(''))} />}

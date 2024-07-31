@@ -46,7 +46,7 @@ function Wiki() {
         <header className="my-10">
           <h1 className="text-4xl font-header font-bold text-center">Wiki</h1>
           <p className="text-center">Coming soon...</p>
-          <p className="text-center text-sm text-foreground-alt">
+          <p className="text-center text-sm text-light-foreground-alt dark:text-foreground-alt">
             Wiki/cheatsheet like collection of MD docs on various topics with examples, tips, comments, etc.
           </p>
         </header>

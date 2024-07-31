@@ -1,7 +1,12 @@
-require('dotenv').config();
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
+
+// console.log('NODE_ENV:', process.env.NODE_ENV);
 
 module.exports = {
+  publicBaseUrl: process.env.PUBLIC_BASE_URL || 'http://localhost:3000', // clientUrl
+  serverBaseUrl: process.env.SERVER_BASE_URL || 'http://localhost:3001',
   dev: process.env.NODE_ENV !== 'production',
+  env: process.env.NODE_ENV || 'development',
   port: process.env.NODE_PORT || 3001,
   db: {
     host: process.env.DB_HOST || 'localhost',
@@ -24,7 +29,21 @@ module.exports = {
   jwt: {
     secret: process.env.JWT,
   },
+  session: {
+    secret: process.env.SESSION_SECRET || '',
+  },
   recaptcha: {
     secret: process.env.RECAPTCHA_SECRET || '',
+  },
+  dropbox: {
+    accessToken: process.env.DROPBOX_ACCESS_TOKEN,
+  },
+  newRelic: {
+    appName: process.env.NEW_RELIC_APP_NAME || 'Portfolio Node.js API',
+    licenseKey: process.env.NEW_RELIC_LICENSE_KEY || '',
+  },
+  google: {
+    clientId: process.env.GOOGLE_CLIENT_ID || '',
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
   },
 };

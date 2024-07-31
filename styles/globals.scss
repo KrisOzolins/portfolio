@@ -34,6 +34,18 @@ body {
 html {
   scroll-behavior: smooth;
 
+  &:not(.dark) {
+    body {
+      background-color: $lightBackground;
+
+      .portfolio {
+        .fade-out-right {
+          mask-image: linear-gradient(to right, $lightBackground 70%, rgb(from $lightBackground r g b / 0%) 100%);
+        }
+      }
+    }
+  }
+
   body {
     background-color: $background;
     margin: 0;

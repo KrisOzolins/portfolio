@@ -1,0 +1,33 @@
+{
+  "Blog": {
+    "title": "Mans bloga nosaukums",
+    "text": "..."
+  },
+  "PrivacyPolicy": {
+    "header": {
+      "title": "Privātuma Politika",
+      "intro": "Laipni lūdzam mūsu Privātuma Politikas lapā. Šī politika apraksta, kā mēs apkopojam, izmantojam, izpaužam un aizsargājam Jūsu informāciju, kad apmeklējat mūsu tīmekļa vietni. Lūdzu, rūpīgi izlasiet."
+    },
+    "content": [
+      {
+        "paragraph": "KrisOzolins Portfolio prioritāte ir Jūsu privātums, un mēs esam caurspīdīgi par ierobežoto sīkfailu un personas datu izmantošanu mūsu vietnē. Mūsu tīmekļa vietne izmanto sīkfailus tikai analītikas nolūkos, ko veic Google Analytics, lai palīdzētu mums saprast, kā mūsu apmeklētāji mijiedarbojas ar vietni. Šī informācija ļauj mums nepārtraukti uzlabot Jūsu lietotāja pieredzi."
+      },
+      {
+        "paragraph": "Tiem, kas izvēlas izmantot Google OAuth autentifikācijai, esiet pārliecināti, ka šis process tiek pārvaldīts tieši caur Google drošās autentifikācijas ietvaru. Mēs saņemam tikai nepieciešamo profila informāciju, lai izveidotu vai piekļūtu Jūsu kontam, neuzglabājot sensitīvus personas datus uz mūsu serveriem."
+      },
+      {
+        "paragraph": "Mūsu admin CMS panelis izmanto pašieviestu JWT (JSON Web Token) autentifikācijas sistēmu, nodrošinot, ka tikai autorizēti lietotāji var piekļūt noteiktām funkcijām. Šī sistēma ir izstrādāta ievērojot drošus principus, kas ļauj aizsargāt mūsu platformas integritāti."
+      },
+      {
+        "paragraph": "Papildus tam mēs izmantojam New Relic APM (Application Performance Monitoring) rīku, lai nodrošinātu mūsu tīmekļa vietnes veiktspējas optimizāciju un ātri identificētu jebkādas problēmas, kas varētu ietekmēt Jūsu pieredzi. New Relic APM neapkopo personas informāciju, bet palīdz mums uzraudzīt mūsu vietnes stabilitāti un veiktspēju."
+      },
+      {
+        "paragraph": "Mēs neizpaužam, nepārdodam, neizīrējam un netirgojam lietotāju datus trešajām pusēm komerciālajiem nolūkiem. Sīkfailu izmantošana un jebkuri dati, kas apkopoti caur Google OAuth, JWT autentifikāciju un New Relic APM, tiek izmantoti tikai iepriekš minētajiem mērķiem."
+      },
+      {
+        "paragraph": "Izmantojot mūsu vietni, Jūs piekrītat mūsu Privātuma Politikai un sīkfailu izmantošanai analītikas un nepieciešamajai vietnes funkcionalitātei. Mēs esam apņēmušies aizsargāt Jūsu privātumu un nodrošināt drošu tiešsaistes pieredzi."
+      }
+    ],
+    "lastUpdated": "Pēdējoreiz atjaunots: 2024. gada 18. jūlijā"
+  }
+}

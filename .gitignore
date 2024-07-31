@@ -20,15 +20,10 @@
 /dist
 
 # misc
-/public/storage
-storage/log
-.do
-.DS_Store
 *.pem
 *.key
 .idea
-.cache
-.htpasswd
+# ...
 
 # logs
 *.log
@@ -42,6 +37,7 @@ development.log
 */.env
 */.env.backup
 */.env*.local
+!.env.example
 
 # vercel
 .vercel
@@ -49,3 +45,41 @@ development.log
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# other/custom/misc/etc.
+*.pem
+*.key
+.idea
+.cache
+.archive
+.projects
+.open-source
+.old-projects
+.do
+.DS_Store
+.htpasswd
+.vscode/extensions
+.vscode/.php-cs-fixer.php
+node_modules
+vendor
+storage/*.key
+storage/log
+/vm
+/zsh
+/rn
+/electron
+/python
+/rails
+/unity
+/php
+/node
+/docs
+/packages
+/other
+/public/storage
+/projects
+/nextjs
+/portfolio
+/Downloads
+/notes
+/app/notes

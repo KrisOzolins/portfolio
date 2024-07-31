@@ -14,6 +14,14 @@ const handleSocketIO = (io, socket) => {
   //   socket.emit('chat-message', `Server: A reply to the client.`); // Respond to the sender only.
   // });
 
+  socket.on('someoneIsTyping', (msg) => {
+    socket.broadcast.emit('someoneIsTyping', msg);
+  });
+
+  socket.on('commentPosted', (data) => {
+    io.emit('commentPosted', data);
+  });
+
   socket.on('disconnect', () => {
     console.log('User disconnected.');
   });

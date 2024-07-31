@@ -1,6 +1,6 @@
 import axios from 'axios';
-import config from '../../config';
 import client from '../utils/api/client';
+import config from '../../config';
 
 interface ContactEmailData {
   name: string;

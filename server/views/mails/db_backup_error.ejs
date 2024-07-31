@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <title>Error backing up database</title>
+</head>
+<body>
+    <p>
+      There was an error backing up the database. Please check the logs for more information.
+    </p>
+    <p><strong>Data</strong>:</p>
+    <ul style="padding-left: 5px;">
+      <li>Time: <%= time %></li>
+      <li>File: <%= file %></li>
+      <li>Dropbox error: <%= error %></li>
+    </ul>
+</body>
+</html>

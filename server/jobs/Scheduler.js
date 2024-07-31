@@ -1,11 +1,11 @@
 const cron = require('node-cron');
-const ExampleTask = require('./tasks/ExampleTask');
+const DbBackupTask = require('./tasks/DbBackupTask');
 
 class Scheduler {
   static setup() {
-    // Schedule ExampleTask to run every hour.
-    cron.schedule('0 * * * *', () => {
-      ExampleTask.run();
+    // Schedule DbBackupTask to run every day.
+    cron.schedule('0 1 * * *', () => {
+      // DbBackupTask.run(); // todo: Finish & test this.
     });
 
     // Inline task, running every minute.

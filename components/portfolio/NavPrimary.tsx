@@ -5,7 +5,7 @@ function NavPrimary() {
   const activeSection = useActiveSection(['home', 'about', 'details', 'services', 'contact']);
 
   const activeClass = (path: string) => {
-    return activeSection === path ? 'bg-primary-accent' : '';
+    return activeSection === path ? 'bg-primary-accent text-white' : '';
   };
 
   return (
@@ -14,7 +14,7 @@ function NavPrimary() {
         <li>
           <a
             href="/#home"
-            className={`text-white text-sm p-3 w-full hover:bg-primary-accent transition ease-linear duration-300 inline-block ${activeClass('home')}`}
+            className={`text-light-white dark:text-white text-sm p-3 w-full hover:bg-primary-accent hover:text-white transition ease-linear duration-300 inline-block ${activeClass('home')}`}
           >
             <Icon name="house" /> Home
           </a>
@@ -22,7 +22,7 @@ function NavPrimary() {
         <li>
           <a
             href="/#about"
-            className={`text-white text-sm p-3 w-full hover:bg-primary-accent transition ease-linear duration-300 inline-block ${activeClass('about')}`}
+            className={`text-light-white dark:text-white text-sm p-3 w-full hover:bg-primary-accent hover:text-white transition ease-linear duration-300 inline-block ${activeClass('about')}`}
           >
             <Icon name="circle-info" /> About
           </a>
@@ -30,7 +30,7 @@ function NavPrimary() {
         <li>
           <a
             href="/#details"
-            className={`text-white text-sm p-3 w-full hover:bg-primary-accent transition ease-linear duration-300 inline-block ${activeClass('details')}`}
+            className={`text-light-white dark:text-white text-sm p-3 w-full hover:bg-primary-accent hover:text-white transition ease-linear duration-300 inline-block ${activeClass('details')}`}
           >
             <Icon name="user-large" /> Details
           </a>
@@ -38,7 +38,7 @@ function NavPrimary() {
         <li>
           <a
             href="/#services"
-            className={`text-white text-sm p-3 w-full hover:bg-primary-accent transition ease-linear duration-300 inline-block ${activeClass('services')}`}
+            className={`text-light-white dark:text-white text-sm p-3 w-full hover:bg-primary-accent hover:text-white transition ease-linear duration-300 inline-block ${activeClass('services')}`}
           >
             <Icon name="wrench" /> Services
           </a>
@@ -46,7 +46,7 @@ function NavPrimary() {
         <li>
           <a
             href="/#contact"
-            className={`text-white text-sm p-3 w-full hover:bg-primary-accent transition ease-linear duration-300 inline-block ${activeClass('contact')}`}
+            className={`text-light-white dark:text-white text-sm p-3 w-full hover:bg-primary-accent hover:text-white transition ease-linear duration-300 inline-block ${activeClass('contact')}`}
           >
             <Icon name="address-card" /> Contact
           </a>

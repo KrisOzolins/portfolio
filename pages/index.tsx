@@ -16,9 +16,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import Mail from '@/lib/services/Mail';
 import { withWidth } from '@/lib/hooks/useWidth';
 import useActiveSection from '@/lib/hooks/useActiveSection';
+import useClient from '@/lib/hooks/useClient';
 import { parseWorkExperience, parseEducation, parseSkills, detectUrl } from '@/helpers';
 import config from '@/config';
-import useClient from '@/lib/hooks/useClient';
 
 // Components
 import ConditionalWrapper from '@/components/common/ConditionalWrapper';
@@ -379,33 +379,33 @@ function Portfolio({
                   <>Krisjanis Ozolins</>
                 </ConditionalWrapper>
               </h2>
-              <p className="text-foreground-alt mb-3">
+              <p className="text-light-foreground-alt dark:text-foreground-alt mb-3">
                 <Icon name="briefcase" /> Full-stack web developer
               </p>
-              <p className="text-foreground-alt mb-3">
+              <p className="text-light-foreground-alt dark:text-foreground-alt mb-3">
                 <a href="https://google.com/maps/place/Riga" target="_blank" rel="noreferrer noopener">
                   <Icon name="location-pin" /> Riga, Latvia
                 </a>
               </p>
-              <p className="text-foreground-alt mb-3">
+              <p className="text-light-foreground-alt dark:text-foreground-alt mb-3">
                 <Icon name="birthday-cake" /> Age {new Date().getFullYear() - 1991}
               </p>
-              <p className="text-foreground-alt mb-3">
+              <p className="text-light-foreground-alt dark:text-foreground-alt mb-3">
                 <Icon name="hammer" /> Available for hire and freelance
               </p>
-              <p className="text-foreground-alt mb-3">
+              <p className="text-light-foreground-alt dark:text-foreground-alt mb-3">
                 <a href={`mailto:${config.email}`} target="_blank" rel="noreferrer noopener">
                   <Icon name="envelope" /> {config.email}
                 </a>
               </p>
-              <p className="text-foreground-alt mb-7">
+              <p className="text-light-foreground-alt dark:text-foreground-alt mb-7">
                 <a href={`tel:${config.phone.replace(' ', '')}`} target="_blank" rel="noreferrer noopener">
                   <Icon name="phone" /> {config.phone}
                 </a>
               </p>
               <a
                 href={`${config.apiServerUrl}/download/cv`}
-                className="bg-primary-accent hover:bg-gray-regular transition-colors ease-in duration-200 w-32 h-10 mb-10 lg:mb-7 uppercase font-bold flex justify-center items-center"
+                className="bg-primary-accent hover:bg-gray-regular transition-colors ease-in duration-200 w-32 h-10 mb-10 lg:mb-7 uppercase font-bold flex justify-center items-center text-white"
               >
                 <Icon name="download" />
                 CV
@@ -417,7 +417,7 @@ function Portfolio({
                   <Icon name={data.icon} /> {data.sectionTitle}
                 </h3>
                 {data.items.map((item, itemIdx) => (
-                  <div key={itemIdx} className="text-foreground-alt mb-3">
+                  <div key={itemIdx} className="text-light-foreground-alt dark:text-foreground-alt mb-3">
                     <p className="font-bold mb-2">
                       <ConditionalWrapper
                         condition={item.url.length as any}
@@ -433,9 +433,9 @@ function Portfolio({
                       </ConditionalWrapper>
                     </p>
                     {/* todo: Maybe use <progress> here? */}
-                    <div className="w-full bg-white rounded-full h-4 max-w-[400px]">
+                    <div className="w-full bg-light-gray-light dark:bg-white rounded-full h-4 max-w-[400px]">
                       <div
-                        className="bg-gray-regular h-4 rounded-full flex justify-center items-center text-xs"
+                        className="bg-light-gray-regular dark:bg-gray-regular h-4 rounded-full flex justify-center items-center text-xs text-white"
                         style={{ width: `${item.percentage}%` }}
                       >
                         {item.percentage}%
@@ -447,7 +447,7 @@ function Portfolio({
             ))}
           </div>
           <div className="lg:col-span-2 lg:pr-3">
-            <section className="mb-10 border-b-2 border-gray-regular">
+            <section className="mb-10 border-b-2 border-light-gray-regular dark:border-gray-regular">
               <h3 className={`text-2xl font-header font-bold tracking-wider border-s-primary-accent border-s-4 ps-3 cursor-pointer mb-7`}>
                 <Icon name="suitcase" /> Work experience
               </h3>
@@ -468,12 +468,12 @@ function Portfolio({
                   <p>{job.desc}</p>
                 </article>
               ))}
-              <p className="mb-10 text-foreground-alt text-sm">
+              <p className="mb-10 text-light-foreground-alt dark:text-foreground-alt text-sm">
                 <Icon name="info-circle" /> Unfortunately I can't provide access to the source code for the projects I've worked on, as they're all
                 closed-source and IP of the companies/clients I've worked for.
               </p>
             </section>
-            <section className="mb-10 border-b-2 border-gray-regular">
+            <section className="mb-10 border-b-2 border-light-gray-regular dark:border-gray-regular">
               <h3 className={`text-2xl font-header font-bold tracking-wider border-s-primary-accent border-s-4 ps-3 cursor-pointer mb-7`}>
                 <Icon name="certificate" /> Education
               </h3>
@@ -501,7 +501,7 @@ function Portfolio({
                   <p>{skill.skills.join(', ')}</p>
                 </article>
               ))}
-              <p className="mb-10 text-foreground-alt text-sm">
+              <p className="mb-10 text-light-foreground-alt dark:text-foreground-alt text-sm">
                 <Icon name="info-circle" /> It's difficult and also unnecessary to list all the technologies I've learned and/or worked with over the
                 years, but these are the main ones and with which I have the most experience. For more specific information please{' '}
                 <a href="#contact" className="underline">
@@ -522,7 +522,7 @@ function Portfolio({
             className={`bg-center bg-cover h-[350px] w-full max-w-xl lg:w-1/2 grayscale hover:grayscale-0 transition ease-linear duration-500${width >= 1024 ? ' fade-out-right' : ''}`}
             style={{ backgroundImage: 'url("/resources/images/services-bg.webp")' }}
           ></div>
-          <div className="bg-background bg-opacity-90 p-10 border-b-2 border-primary-accent h-fit z-10 min-w-[340px] max-w-[450px] w-10/12 lg:w-1/3 -mt-40 lg:mt-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+          <div className="bg-light-background dark:bg-background bg-opacity-90 p-10 border-b-2 border-primary-accent h-fit z-10 min-w-[340px] max-w-[450px] w-10/12 lg:w-1/3 -mt-40 lg:mt-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
             <h3 className="text-2xl font-header font-bold text-center md:text-left mb-3">About the services</h3>
             <p className="text-center md:text-left">
               With my diverse skillset and experience, I can help you with both new projects and prototypes, as well as with existing and legacy
@@ -538,7 +538,7 @@ function Portfolio({
               <div className="rounded-l-full">
                 <div className="flex items-center space-x-2">
                   <div className="px-3 py-1 rounded-full bg-primary-accent">
-                    <Icon name={service.icon} className="regular-icon" />
+                    <Icon name={service.icon} className="regular-icon text-white" />
                   </div>
                   <h4 className="text-base font-header font-bold md:mb-3 md:hidden">{service.title}</h4>
                 </div>
@@ -573,7 +573,7 @@ function Portfolio({
                 <p className="text-xl font-bold mb-5">Thank you for your message!</p>
                 <p>I will get back to you as soon as possible.</p>
                 <button
-                  className="bg-primary-accent hover:bg-gray-dark w-32 h-10 mt-10 uppercase font-bold flex justify-center items-center"
+                  className="bg-primary-accent hover:bg-light-gray-dark dark:hover:bg-gray-dark w-32 h-10 mt-10 uppercase font-bold flex justify-center items-center"
                   onClick={() => setEmailSent(false)}
                 >
                   <Icon name="arrow-left" />
@@ -616,7 +616,9 @@ function Portfolio({
                 <ReCAPTCHA ref={recaptchaRef} sitekey={config.recaptchaSiteKey} className="mb-5" />
                 <button
                   type="submit"
-                  className="py-2 px-4 w-full transition-colors ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg bg-primary-accent hover:bg-white hover:text-primary-accent"
+                  className="py-2 px-4 w-full transition-colors ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg text-white bg-primary-accent hover:bg-light-gray-light dark:hover:bg-white hover:text-primary-accent"
+                  role="button"
+                  aria-label="Send message"
                 >
                   Send
                 </button>
@@ -627,7 +629,7 @@ function Portfolio({
             <p className="text-xl font-bold mb-5">Contact details</p>
             <div className="flex items-center mb-5">
               <div className="bg-primary-accent rounded-full h-12 w-12 flex justify-center items-center mr-5">
-                <Icon name="location-pin" className="regular-icon" />
+                <Icon name="location-pin" className="regular-icon text-white" />
               </div>
               <div>
                 <p>
@@ -644,7 +646,7 @@ function Portfolio({
             </div>
             <div className="flex items-center mb-5">
               <div className="bg-primary-accent rounded-full h-12 w-12 flex justify-center items-center mr-5">
-                <Icon name="envelope" className="regular-icon" />
+                <Icon name="envelope" className="regular-icon text-white" />
               </div>
               <div>
                 <p>
@@ -659,7 +661,7 @@ function Portfolio({
             </div>
             <div className="flex items-center mb-5">
               <div className="bg-primary-accent rounded-full h-12 w-12 flex justify-center items-center mr-5">
-                <Icon name="phone" className="regular-icon" />
+                <Icon name="phone" className="regular-icon text-white" />
               </div>
               <div>
                 <p>

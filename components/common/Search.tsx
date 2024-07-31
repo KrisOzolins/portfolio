@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import Icon from './Icon';
+import { useHotkeys } from 'react-hotkeys-hook'
 
-function Search({ showSearch, setShowSearch }: { showSearch: boolean; setShowSearch: (show: boolean) => void }) {
+function Search({ showSearch, setShowSearch, error = null }: { showSearch: boolean; setShowSearch: (show: boolean) => void; error: any }) {
+  useHotkeys('mod+k', () => setShowSearch(true));
+
   useEffect(() => {
     const closeSearch = (e: KeyboardEvent | MouseEvent) => {
       if (
@@ -24,22 +27,25 @@ function Search({ showSearch, setShowSearch }: { showSearch: boolean; setShowSea
   return (
     showSearch && (
       <div className="relative z-max" id="headlessui-dialog-:r4l:" role="dialog" aria-modal="true" data-headlessui-state="open">
-        <div className="fixed inset-0 bg-gray-dark/25 backdrop-blur transition-opacity opacity-100">
+        <div className="fixed inset-0 bg-light-gray-dark/25 dark:bg-gray-dark/25 backdrop-blur transition-opacity opacity-100">
           <div className="flex justify-center px-3 pb-4 pt-20 sm:pt-28">
             <div className="search-dialog w-full max-w-xl overflow-hidden rounded-2xl text-left align-middle bg-white dark:bg-neutral-800">
-              <form role="search" method="GET" className="search-d relative" action="https://ncmaz.chisnghiax.com">
+              <form role="search" method="GET" className="search-d relative" action="http://localhost:3000/blog">
                 <div className="relative">
                   <Icon name="search" className="absolute mt-[1px] left-3 top-1/2 transform -translate-y-1/2 text-2xl opacity-70" />
                   <input
                     type="search"
-                    className="font-header block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 rounded-2xl  text-sm font-normal px-4 py-5 pl-12 shadow-none !ring-0 !border-0 dark:bg-neutral-700"
+                    className="font-header block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 rounded-2xl text-sm font-normal px-4 py-5 pl-12 shadow-none !ring-0 !border-0 dark:bg-neutral-700"
                     name="s"
                     placeholder="Type and press enter"
+                    autoFocus
+                    defaultValue={document.location.search.split('s=')[1] || ''}
                   />
                   <input type="submit" hidden value="" />
                 </div>
               </form>
-              <div className="results">
+              {error && <div className="text-red-400 text-xs m-3">{error}</div>}
+              {/* <div className="results">
                 <div className="flex justify-between items-center border-b border-neutral-200 dark:border-neutral-700">
                   <div className="text-xs font-medium text-neutral-500 dark:text-neutral-400 py-3 px-4">Recent searches</div>
                   <button
@@ -60,7 +66,7 @@ function Search({ showSearch, setShowSearch }: { showSearch: boolean; setShowSea
                     React
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

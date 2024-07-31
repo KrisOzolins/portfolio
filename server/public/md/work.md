@@ -42,5 +42,5 @@
 
 ## Full-stack developer / planetargon.com
 * Date: 2024 - current
-* Tech: PHP, Laravel
-* Desc: Currently, I am working as a full-stack developer at Planet Argon. Working with a team of talented developers and clients such as Nike.
+* Tech: PHP, Laravel, Ruby/Rails, React.js, Next.js, Vue, DevOps
+* Desc: Currently, I am working as a full-stack developer at Planet Argon. Working with a team of talented developers and clients such as Nike, NSA and GNOMON. Tech I'm working with includes PHP/Laravel, Ruby/Rails, MySQL, PostgreSQL, React, Vue, Nuxt, DevOps, etc. Fun fact - Planet Argon's CEO is Robby Russell, the creator of [Oh My Zsh](https://ohmyz.sh/).
