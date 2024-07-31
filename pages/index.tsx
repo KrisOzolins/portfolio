@@ -17,7 +17,7 @@ import Mail from '@/lib/services/Mail';
 import { withWidth } from '@/lib/hooks/useWidth';
 import useActiveSection from '@/lib/hooks/useActiveSection';
 import useClient from '@/lib/hooks/useClient';
-import { parseWorkExperience, parseEducation, parseSkills, detectUrl } from '@/helpers';
+import { parseMD, parseWorkExperience, parseEducation, parseSkills, detectUrl } from '@/helpers';
 import config from '@/config';
 
 // Components
@@ -465,7 +465,7 @@ function Portfolio({
                   <p className="mb-2 text-secondary">
                     <strong>Tech</strong>: {job.tech}
                   </p>
-                  <p>{job.desc}</p>
+                  <p dangerouslySetInnerHTML={{ __html: parseMD(job.desc) }}></p>
                 </article>
               ))}
               <p className="mb-10 text-light-foreground-alt dark:text-foreground-alt text-sm">
