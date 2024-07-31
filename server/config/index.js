@@ -17,6 +17,7 @@ module.exports = {
     uri: process.env.DB_URI || '',
   },
   redis: {
+    url: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
     host: process.env.REDIS_HOST || 'localhost',
     port: process.env.REDIS_PORT || 6379,
   },

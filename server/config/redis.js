@@ -1,5 +1,6 @@
 const redis = require('redis');
 const chalk = require('chalk');
+const config = require('../config');
 // const bluebird = require('bluebird');
 // const redisCommands = require('redis-commands');
 
@@ -24,6 +25,7 @@ const chalk = require('chalk');
 
 const client = redis.createClient({
   legacyMode: true,
+  url: config.redis.url,
   // host: 'localhost',
   // port: 6379,
 });
