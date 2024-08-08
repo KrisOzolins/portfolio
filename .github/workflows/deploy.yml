@@ -87,18 +87,28 @@ jobs:
       #       pm2 restart all
       #     EOF
 
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DO_API_TOKEN }}
+      # - name: Install doctl
+      #   uses: digitalocean/action-doctl@v2
+      #   with:
+      #     token: ${{ secrets.DO_API_TOKEN }}
 
-      - name: Trigger DigitalOcean App Platform Deploy
-        env:
-          # APP_ID: 6caf8a20-bd2e-408b-817a-f0c5de6e19e2
-          DO_API_TOKEN: ${{ secrets.DO_API_TOKEN }}
-        run: |
-          doctl apps create-deployment 6caf8a20-bd2e-408b-817a-f0c5de6e19e2
-          # curl -X POST "https://api.digitalocean.com/v2/apps/6caf8a20-bd2e-408b-817a-f0c5de6e19e2/deployments" \
-          # -H "Authorization: Bearer $DO_API_TOKEN" \
-          # -H "Content-Type: application/json" \
-          # -d '{"force_build":true}'
+      # - name: Trigger DigitalOcean App Platform Deploy
+      #   env:
+      #     # APP_ID: 6caf8a20-bd2e-408b-817a-f0c5de6e19e2
+      #     DO_API_TOKEN: ${{ secrets.DO_API_TOKEN }}
+      #   run: |
+      #     doctl apps create-deployment 6caf8a20-bd2e-408b-817a-f0c5de6e19e2
+      #     # curl -X POST "https://api.digitalocean.com/v2/apps/6caf8a20-bd2e-408b-817a-f0c5de6e19e2/deployments" \
+      #     # -H "Authorization: Bearer $DO_API_TOKEN" \
+      #     # -H "Content-Type: application/json" \
+      #     # -d '{"force_build":true}'
+
+      - name: Deploy to Droplet by invoking deploy script via ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_DROPLET_IP }}
+          username: ${{ secrets.DO_DROPLET_USER }}
+          key: ${{ secrets.DO_DROPLET_SSH_KEY }}
+          script: |
+            cd /root
+            ./host-server-deploy.sh

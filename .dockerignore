@@ -1,7 +1,7 @@
 **/node_modules
 **/.gitignore
 **/Dockerfile*
-*/.env*
+#*/.env*
 .github
 .vscode
 .idea
